@@ -1,0 +1,268 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Radim Lipka (xlipka02), Roman Ondráček (xondra58), Pavel Raur (xraurp00), David Reinhart (xreinh00)}
+\title{Domácí úlohy do Diskrétní matematiky}
+\begin{document}
+% Vynechání číslování
+\pagestyle{empty}
+
+\begin{center}
+
+\includegraphics[height = 96pt]{img/FIT_barevne_CMYK_CZ.pdf} \\
+
+\begin{LARGE}
+\textbf{Vysoké učení technické v Brně} \\
+\end{LARGE}
+
+\begin{large}
+Fakulta informačních technoligií \\
+Diskrétní matematika \\
+2018~/~2019 \\
+\end{large}
+
+\vspace{128pt}
+
+\begin{huge}
+\textbf{Sada č.~1} \\
+\end{huge}
+
+\vspace{128pt}
+
+\begin{large}
+Radim Lipka (xlipka02) \\
+Roman Ondráček (xondra58) \\
+Pavel Raur (xraurp00) \\
+David Reinhart (xreinh00)
+\end{large}
+
+\end{center}
+
+\vfill
+
+\newpage
+
+% Povolení číslování
+\pagestyle{plain}
+\section*{Domácí úloha 1}
+
+\subsection*{Příklad č.~1}
+
+Dokažte nebo vyvraťte protipříkladem následující tvrzení. Pro všechny množiny $X,Y,Z \subseteq U$ platí (doplňky množin uvažujeme vůči množině $U$):
+
+\begin{equation}
+\overline{X \cap Y} = \overline{X} \cup \overline{Y} \label{eq:1.1}
+\end{equation}
+
+Tvrzení \eqref{eq:1.1} je pravdivé, protože rovnost je dána De Morganovým zákonem. 
+
+\begin{equation}
+Y \setminus X = X \setminus Y \label{eq:1.2}
+\end{equation}
+
+Tvrzení \eqref{eq:1.2} není pravdivé, protože rozdíl množit není komutatitní.
+
+\textbf{Důkaz:} 
+\begin{eqnarray*}
+X = \lbrace 1, 2, 3, 4 \rbrace \\
+Y = \lbrace 3, 4, 5, 6 \rbrace \\
+Y \setminus X \neq X \setminus Y \\
+\lbrace 5, 6\rbrace \neq \lbrace 1, 2 \rbrace
+\end{eqnarray*}
+
+\begin{equation}
+\overline{X \cup Y} \supseteq X \label{eq:1.3}
+\end{equation}
+
+\begin{equation}
+(X \cup Y) \cap (Y \setminus X) = Y \label{eq:1.4}
+\end{equation}
+
+\begin{equation}
+X \setminus (Y \cap Z) = (Z \setminus Y) \cup Z \label{eq:1.5}
+\end{equation}
+
+\subsection*{Příklad č.~2}
+
+Na množině $X = {1, 2, 3, 4, 5, 6, 7, 8}$ je dána relace $R = \{(x,y)\mid x, y \in X, 3x \text{ dělí } 4y\}$. Zapište relaci $R$ výčtem prvků. Určete její definiční obor a obor hodnot. Nalezněte
+relaci $R^{-1}$.
+
+\subsection*{Příklad č.~3}
+
+Uvažujte množinu $\tau_{n}$ všech topologií na množině o $n = 2$ prvcích s uspořádáním
+inkluzí. Nakreslete její Hasseův diagram a rozhodněte, zda je $(\tau_{2}, \subseteq)$ svazově uspořádaná.
+
+\subsection*{Příklad č.~4}
+
+Dokažte nebo vyvraťe protipříkladem pro libovolné dvě relace $R_{1}, R_{2}$ na množibě $X$:
+
+\begin{equation}
+\rho (R_{1} \cup R_{2}) = \rho (R_{1}) \cup \rho (R_{2})
+\end{equation}
+
+\begin{equation}
+\sigma (R_{1} \cap R_{2}) = \sigma (R_{1}) \cap \sigma (R_{2})
+\end{equation}
+
+\begin{equation}
+\tau (R_{1} \cap R_{2}) = \tau (R_{1}) \cap \tau (R_{2})
+\end{equation}
+
+\begin{equation}
+\sigma(\rho(R_{1})) = \rho(\sigma(R_{1}))
+\end{equation}
+
+\begin{equation}
+\sigma(\tau(R_{1})) = \tau(\sigma(R_{1}))
+\end{equation}
+
+\begin{equation}
+\rho(\tau(R_{1})) = \tau(\rho(R_{1}))
+\end{equation}
+
+\subsection*{Příklad č.~5}
+
+\section*{Domácí úloha 2}
+
+\subsection*{Příklad č.~6}
+
+Najděte všechny podgrupy $(\mathbb{Z}_{6}, \oplus)$. Které z nich jsou normální? Sestrojte příslušné faktorové grupy.
+
+\subsection*{Příklad č.~7}
+
+Najděte všechny distributivní svazy o 5 prvcích.
+
+\subsection*{Příklad č.~8}
+
+V Booleově algebře $(X, \oplus, \odot, {}^{\prime}, 0, 1)$ zjednodušte výrazy:
+
+\begin{equation}
+(a \oplus c) \oplus (c \oplus b) \oplus (b \oplus a) = a \oplus a \oplus b \oplus b \oplus c \oplus c = a \oplus b \oplus c
+\end{equation}
+
+\begin{equation}
+(x \odot y) \oplus (x \odot z) \oplus (x^{\prime} \odot z^{\prime})^{\prime}
+\end{equation}
+
+\begin{equation}
+(x^{\prime} \oplus y^{\prime})^{\prime}
+\end{equation}
+
+\subsection*{Příklad č.~9}
+
+Buď $G$ úplný graf o $n$ vrcholech. Určete počet cest délky 2, které začínají v pevně zvoleném vrcholu $a$ a končí v jiném pevně zvoleném vrcholu $b$. Kolik existuje takových cest délky 3? Zobecněte tento výsledek pro libovolné $k$, kde $1 \leq\ k < n$.
+
+\subsection*{Příklad č.~10}
+
+Nakreslete graf se šesti vrcholy, který lze nakreslit jedním uzavřeným tahem, ale v němž neexistuje hamiltonovská kružnice. Náležitě zdůvodněte, že tento graf má požadované vlastnosti.
+
+\section*{Domácí úloha 3}
+
+\subsection*{Příklad č.~11}
+
+Je dána soustava lineárních rovnic
+
+\begin{eqnarray*}
+x + y - z = -1 \\
+x + y -2z = 1 \\
+2x + 2y - 2z = 3
+\end{eqnarray*}
+
+Každá rovnice určuje rovinu v třírozměrném Eukleidovském prostoru $\mathbb{R}^{3}$. Určete jejich vzájemnou polohu.
+
+\subsection*{Příklad č.~12}
+
+Řešte soustavu lineárních rovnic:
+
+\begin{eqnarray*}
+x + 2y + z - w = 6 \\
+-x + 3y -z = 8 \\
+3x -y + 2w = -1
+\end{eqnarray*}
+
+\subsection*{Příklad č.~13}
+
+Jakoukoliv metodou nebo více metodami spočítejte determinant matice:
+
+\begin{equation}
+A = 
+\begin{pmatrix}
+3 & -2 & 0 & 2 \\
+-2 & 3 & 3 & -2 \\
+0 & 3 & 2 & 1 \\
+2 & -2 & 1 & -1
+\end{pmatrix}
+\end{equation}
+
+\subsection*{Příklad č.~14}
+
+Ve vektorovém prostoru $\mathbb{R}^{4}$ jsou dány vektory $\overline{a}_{1} = 
+\begin{pmatrix}
+1 \\
+1 \\
+0 \\
+0
+\end{pmatrix}$, 
+$\overline{a}_{2} = 
+\begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix}$, 
+$\overline{a}_{3} =
+\begin{pmatrix}
+0 \\
+0 \\
+1 \\
+1
+\end{pmatrix}$ a 
+$\overline{b}_{1} = 
+\begin{pmatrix}
+1 \\
+0 \\
+1 \\
+0
+\end{pmatrix}$, 
+$\overline{b}_{2} =
+\begin{pmatrix}
+0 \\
+2 \\
+1 \\
+1
+\end{pmatrix}$, 
+$\overline{b}_{3} =
+\begin{pmatrix}
+1 \\
+2 \\
+1 \\
+2
+\end{pmatrix}$
+
+\subsection*{Příklad č.~15}
+
+Je dáno lineární zobrazení $l: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ předpisem
+
+\begin{equation*}
+l\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+x_{3}
+\end{pmatrix} = 
+\begin{pmatrix}
+2x_{1} - 2x_{0 + 3x_{3}} \\
+x_{2} + 2x_{3} \\
+-3x_{1} - x_{2}
+\end{pmatrix}
+\end{equation*}.
+
+Najděte jeho maticovou reprezentaci ve standardní bázi a určete bázi a dimenzi prostorů $\textbf{Ker}~l$ a $\textbf{Img}~l$.
+
+\end{document}
