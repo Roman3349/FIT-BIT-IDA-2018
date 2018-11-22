@@ -66,7 +66,7 @@ Dokažte nebo vyvraťte protipříkladem následující tvrzení. Pro všechny m
 \overline{X \cap Y} = \overline{X} \cup \overline{Y} \label{eq:1.1}
 \end{equation}
 
-Tvrzení \eqref{eq:1.1} je pravdivé, protože rovnost je dána De Morganovým zákonem.
+Tvrzení \eqref{eq:1.1} je pravdivé.
 
 \textbf{Důkaz:}
 \begin{eqnarray*}
@@ -95,7 +95,7 @@ x \in \overline{X \cap Y}
 Y \setminus X = X \setminus Y \label{eq:1.2}
 \end{equation}
 
-Tvrzení \eqref{eq:1.2} není pravdivé, protože rozdíl množit není komutatitní.
+Tvrzení \eqref{eq:1.2} není pravdivé.
 
 \textbf{Důkaz:}
 \begin{eqnarray*}
@@ -251,31 +251,114 @@ Množina $(\tau_{2}, \subseteq)$ je svazově uspořádaná, protože má v $\tau
 
 \subsection*{Příklad č.~4}
 
-Dokažte nebo vyvraťe protipříkladem pro libovolné dvě relace $R_{1}, R_{2}$ na množibě $X$:
+Dokažte nebo vyvraťe protipříkladem pro libovolné dvě relace $R_{1}, R_{2}$ na množině $X$:
 
 \begin{equation}
-\rho (R_{1} \cup R_{2}) = \rho (R_{1}) \cup \rho (R_{2})
+\rho (R_{1} \cup R_{2}) = \rho (R_{1}) \cup \rho (R_{2})\label{eq:4.1}
 \end{equation}
 
-\begin{equation}
-\sigma (R_{1} \cap R_{2}) = \sigma (R_{1}) \cap \sigma (R_{2})
-\end{equation}
+\begin{eqnarray*}
+\rho (R_{1} \cup R_{2}) =
+R_{1} \cup R_{2} \Delta X =
+(R_{1} \cup \Delta X \cup (R_{2} \cup \Delta X =
+\rho (R_{1}) \cup \rho (R_{2})
+\end{eqnarray*}
+
+\noindent\rule{\textwidth}{1pt}
 
 \begin{equation}
-\tau (R_{1} \cap R_{2}) = \tau (R_{1}) \cap \tau (R_{2})
+\sigma (R_{1} \cap R_{2}) = \sigma (R_{1}) \cap \sigma (R_{2})\label{eq:4.2}
 \end{equation}
 
-\begin{equation}
-\sigma(\rho(R_{1})) = \rho(\sigma(R_{1}))
-\end{equation}
+\begin{eqnarray*}
+R_{1} = \lbrace (1, 2) \rbrace \\
+R_{2} = \lbrace (2, 1) \rbrace \\
+R_{1} \cap R_{2} = \emptyset \\
+\sigma(R_{1}) =
+\lbrace (1, 2) \cup (2, 1) \rbrace =
+\lbrace (1, 2), (2, 1) \rbrace \\
+\sigma(R_{2}) =
+\lbrace (2, 1) \cup (1, 2) \rbrace =
+\lbrace (1, 2), (2, 1) \rbrace \\
+\emptyset \neq \lbrace (1, 2), (2, 1) \rbrace \Rightarrow
+\sigma (R_{1} \cap R_{2}) \neq \sigma (R_{1}) \cap \sigma (R_{2})
+\end{eqnarray*}
+
+\noindent\rule{\textwidth}{1pt}
 
 \begin{equation}
-\sigma(\tau(R_{1})) = \tau(\sigma(R_{1}))
+\tau (R_{1} \cap R_{2}) = \tau (R_{1}) \cap \tau (R_{2})\label{eq:4.3}
 \end{equation}
 
+\begin{eqnarray*}
+R_{1} = \lbrace (1, 2), (2, 3), (3, 1) \rbrace \\
+R_{2} = \lbrace (1, 2), (2, 5), (5, 1) \rbrace \\
+\tau(R_{1}) = \lbrace (1, 2), (2, 3), (3, 1), (1, 3), (2, 1), (3, 2) \rbrace \\
+\tau(R_{1}) = \lbrace (1, 2), (2, 5), (5, 1), (1, 5), (2, 1), (5, 2) \rbrace \\
+\tau (R_{1} \cap R_{2}) = \lbrace (1, 2), (2, 1) \rbrace \\
+R_{1} \cap R_{2} = \lbrace (1,2) \rbrace \\
+\tau(R_{1} \cap R_{2}) = \lbrace (1,2) \rbrace \\
+\tau (R_{1} \cap R_{2}) \neq \tau (R_{1}) \cap \tau (R_{2})
+\end{eqnarray*}
+
+\noindent\rule{\textwidth}{1pt}
+
 \begin{equation}
-\rho(\tau(R_{1})) = \tau(\rho(R_{1}))
+\tau (R_{1} \cup R_{2}) = \tau (R_{1}) \cup \tau (R_{2})\label{eq:4.4}
 \end{equation}
+
+\begin{eqnarray*}
+\tau (R_{1} \cup R_{2}) =
+(R_{1} \cup R_{2}) \circ (R_{1} \cup R_{2}) =
+(R_{1} \circ R_{1}) \cup (R_{2} \circ R_{2}) =
+\tau(R_{1}) \cup \tau(R_{2})
+\end{eqnarray*}
+
+\noindent\rule{\textwidth}{1pt}
+
+\begin{equation}
+\sigma(\rho(R_{1})) = \rho(\sigma(R_{1}))\label{eq:4.5}
+\end{equation}
+
+\begin{eqnarray*}
+\sigma(\tau(R_{1})) =
+\sigma(R_{1} \cup \Delta X) =
+(R_{1} \cup \Delta X) \cup (R_{1} \cup \Delta X)^{-1} =
+(R_{1} \cup \Delta X) \cup (R_{1}^{-1} \cup \Delta X^{-1}) = \\ =
+(R_{1} \cup R_{1}^{-1}) \cup (\Delta X \cup \Delta X^{-1}) =
+\sigma(R_{1}) \cup (\Delta X \cup \Delta X^{-1}) =
+\rho(\sigma(R_{1}))
+\end{eqnarray*}
+
+%\noindent\rule{\textwidth}{1pt}
+
+\begin{equation}
+\sigma(\tau(R_{1})) = \tau(\sigma(R_{1}))\label{eq:4.6}
+\end{equation}
+
+\begin{eqnarray*}
+R_{1} = \lbrace (1, 2), (2, 3), (3, 1) \rbrace \\
+\tau(R_{1}) = \lbrace (1, 2), (2, 3), (3, 1), (1, 3), (2,1), (1, 1), (3, 3) \rbrace \\
+\sigma(\tau(R_{1})) = \lbrace (1,2), (2, 1), (2, 3), (2, 2), (3, 1), (1, 3), (1, 1), (3, 3) \rbrace \\
+\sigma(R_{1}) = \lbrace (1, 2), (2, 3), (3, 1), (2, 1), (3, 2), (1, 3) \rbrace \\
+\tau(\sigma(R_{1})) = \lbrace (1, 1), (2, 2), (3, 3), (1, 2), (2, 3), (3, 1), (2, 1), (3, 2), (1, 3) \rbrace \\
+\sigma(\tau(R_{1})) \neq \tau(\sigma(R_{1}))
+\end{eqnarray*}
+
+\noindent\rule{\textwidth}{1pt}
+
+\begin{equation}
+\rho(\tau(R_{1})) = \tau(\rho(R_{1}))\label{eq:4.7}
+\end{equation}
+
+\begin{eqnarray*}
+\rho(\tau(R_{1})) =
+\rho(R_{1} \circ R_{1}) =
+(R_{1} \circ R_{1}) \cup X =
+(R_{1} \cup \Delta X) \circ (R_{1} \cup \Delta X) = \\ =
+\rho(R_{1}) \circ \rho(R_{1}) =
+\tau(\rho(R_{1}))
+\end{eqnarray*}
 
 \subsection*{Příklad č.~5}
 
