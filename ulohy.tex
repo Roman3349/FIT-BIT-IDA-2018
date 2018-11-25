@@ -166,7 +166,7 @@ Y &=& \lbrace 2, 3 \rbrace
 \noindent\rule{\textwidth}{1pt}
 
 \begin{equation}
-X \setminus (Y \cap Z) = (Z \setminus Y) \cup Z \label{eq:1.5}
+X \setminus (Y \cap Z) = (X \setminus Y) \cup Z \label{eq:1.5}
 \end{equation}
 
 Tvrzení \eqref{eq:1.5} není pravdivé.
@@ -182,12 +182,12 @@ X \setminus (Y \cap Z) &=&
 (Z \setminus Y) \cup Z \lbrace a, b, c, d \rbrace \setminus (\lbrace a, b, 1, 2 \rbrace \cap \lbrace a, c, 1, 3 \rbrace)  = \\ &=&
 \lbrace a, b, c, d \rbrace \setminus \lbrace a, 1 \rbrace = \\ &=&
 \lbrace b, c, d \rbrace \\
-(Z \setminus Y) \cup Z &=&
-(\lbrace a, c, 1, 3 \rbrace \setminus \lbrace a, b, 1, 2 \rbrace) \cup \lbrace a, c, 1, 3 \rbrace \\ &=&
+(X \setminus Y) \cup Z &=&
+(\lbrace a, b, c, d \rbrace \setminus \lbrace a, b, 1, 2 \rbrace) \cup \lbrace a, c, 1, 3 \rbrace \\ &=&
 \lbrace c, d \rbrace \cup \lbrace a, c, 1, 3 \rbrace = \\ &=&
 \lbrace a, c, d, 1, 3 \rbrace \\
 \lbrace b, c, d \rbrace &\neq& \lbrace a, c, d, 1, 3 \rbrace \\
-X \setminus (Y \cap Z) &\neq& (Z \setminus Y) \cup Z
+X \setminus (Y \cap Z) &\neq& (X \setminus Y) \cup Z
 \end{eqnarray*}
 
 \newpage
