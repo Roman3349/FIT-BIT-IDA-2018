@@ -200,6 +200,7 @@ relaci $R^{-1}$.
 \begin{center}
 \setlength{\arrayrulewidth}{1.5pt}
 \renewcommand{\arraystretch}{1.5}
+\Large
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 \hline
 ~ & x                & 1              & 2              & 3               & 4               & 5               & 6              & 7               & 8               \\
@@ -232,6 +233,8 @@ Im~R &=& \lbrace 3, 6 \rbrace \\
 R^{-1} &=& \lbrace (3, 1), (6, 1), (3, 2), (6, 2), (3, 4), (6, 4), (6, 8) \rbrace
 \end{eqnarray*}
 
+\newpage
+
 \subsection*{Příklad č.~3}
 
 Uvažujte množinu $\tau_{n}$ všech topologií na množině o $n = 2$ prvcích s uspořádáním
@@ -263,8 +266,6 @@ inkluzí. Nakreslete její Hasseův diagram a rozhodněte, zda je $(\tau_{2}, \s
 \end{eqnarray*}
 Množina $(\tau_{2}, \subseteq)$ je svazově uspořádaná, protože má v $\tau_{2}$ infimum i supremum.
 \endminipage
-
-\newpage
 
 \subsection*{Příklad č.~4}
 
@@ -309,7 +310,8 @@ R_{1} \cap R_{2} &=& \emptyset \\
 \sigma (R_{1} \cap R_{2}) &\neq& \sigma (R_{1}) \cap \sigma (R_{2})
 \end{eqnarray*}
 
-\noindent\rule{\textwidth}{1pt}
+%\noindent\rule{\textwidth}{1pt}
+\newpage
 
 \begin{equation}
 \tau (R_{1} \cap R_{2}) = \tau (R_{1}) \cap \tau (R_{2})\label{eq:4.3}
@@ -329,7 +331,7 @@ R_{1} \cap R_{2} &=& \lbrace (1,2) \rbrace \\
 \tau (R_{1} \cap R_{2}) &\neq& \tau (R_{1}) \cap \tau (R_{2})
 \end{eqnarray*}
 
-\newpage
+\noindent\rule{\textwidth}{1pt}
 
 \begin{equation}
 \tau (R_{1} \cup R_{2}) = \tau (R_{1}) \cup \tau (R_{2})\label{eq:4.4}
@@ -351,7 +353,8 @@ R_{1} \cup R_{2} &=& \lbrace (1, 2), (2, 1), (2, 3), (3, 2) \rbrace \\
 \tau (R_{1} \cup R_{2}) &\neq& \tau (R_{1}) \cup \tau (R_{2})
 \end{eqnarray*}
 
-\noindent\rule{\textwidth}{1pt}
+%\noindent\rule{\textwidth}{1pt}
+\newpage
 
 \begin{equation}
 \sigma(\rho(R_{1})) = \rho(\sigma(R_{1}))\label{eq:4.5}
@@ -549,17 +552,19 @@ Najděte všechny distributivní svazy o 5 prvcích.
 
 V Booleově algebře $(X, \oplus, \odot, {}^{\prime}, 0, 1)$ zjednodušte výrazy:
 
-\begin{equation}
-(a \oplus c) \oplus (c \oplus b) \oplus (b \oplus a) = a \oplus a \oplus b \oplus b \oplus c \oplus c = a \oplus b \oplus c
-\end{equation}
+\begin{eqnarray*}
+(a \oplus c) \oplus (c \oplus b) \oplus (b \oplus a) &=&
+a \oplus a \oplus b \oplus b \oplus c \oplus c = \\ &=&
+a \oplus b \oplus c
+\end{eqnarray*}
 
-\begin{equation}
-(x \odot y) \oplus (x \odot z) \oplus (x^{\prime} \odot z^{\prime})^{\prime}
-\end{equation}
+\begin{eqnarray*}
+(x \odot y) \oplus (x \odot z) \oplus (x^{\prime} \odot z^{\prime})^{\prime} &=&
+\end{eqnarray*}
 
-\begin{equation}
-(x^{\prime} \oplus y^{\prime})^{\prime}
-\end{equation}
+\begin{eqnarray*}
+(x^{\prime} \oplus y^{\prime})^{\prime} &=&
+\end{eqnarray*}
 
 \subsection*{Příklad č.~9}
 
@@ -576,9 +581,9 @@ Nakreslete graf se šesti vrcholy, který lze nakreslit jedním uzavřeným tahe
 Je dána soustava lineárních rovnic
 
 \begin{eqnarray*}
-x + y - z = -1 \\
-x + y -2z = 1 \\
-2x + 2y - 2z = 3
+x + y - z &=& -1 \\
+x + y -2z &=& 1 \\
+2x + 2y - 2z &=& 3
 \end{eqnarray*}
 
 Každá rovnice určuje rovinu v třírozměrném Eukleidovském prostoru $\mathbb{R}^{3}$. Určete jejich vzájemnou polohu.
@@ -588,9 +593,9 @@ Každá rovnice určuje rovinu v třírozměrném Eukleidovském prostoru $\math
 Řešte soustavu lineárních rovnic:
 
 \begin{eqnarray*}
-x + 2y + z - w = 6 \\
--x + 3y -z = 8 \\
-3x -y + 2w = -1
+x + 2y + z - w &=& 6 \\
+-x + 3y -z &=& 8 \\
+3x -y + 2w &=& -1
 \end{eqnarray*}
 
 \begin{equation*}
