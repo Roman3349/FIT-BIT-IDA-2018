@@ -15,6 +15,19 @@
 \author{Radim Lipka (xlipka02), Roman Ondráček (xondra58), Pavel Raur (xraurp00), David Reinhart (xreinh00)}
 \title{Domácí úlohy do Diskrétní matematiky}
 \newcommand{\enlCell}[1][~]{\cellcolor{yellow}\textbf{{#1}}}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes}
+%
+\makeatletter
+\tikzset{join/.code=\tikzset{after node path={%
+\ifx\tikzchainprevious\pgfutil@empty\else(\tikzchainprevious)%
+edge[every join]#1(\tikzchaincurrent)\fi}}}
+\makeatother
+%
+\tikzset{>=stealth',every on chain/.append style={join},
+         every join/.style={->}}
+\tikzstyle{labeled}=[execute at begin node=$\scriptstyle,
+   execute at end node=$]
+%
 \begin{document}
 % Vynechání číslování
 \pagestyle{empty}
@@ -249,6 +262,8 @@ inkluzí. Nakreslete její Hasseův diagram a rozhodněte, zda je $(\tau_{2}, \s
 Množina $(\tau_{2}, \subseteq)$ je svazově uspořádaná, protože má v $\tau_{2}$ infimum i supremum.
 \endminipage
 
+\newpage
+
 \subsection*{Příklad č.~4}
 
 Dokažte nebo vyvraťe protipříkladem pro libovolné dvě relace $R_{1}, R_{2}$ na množině $X$:
@@ -257,10 +272,13 @@ Dokažte nebo vyvraťe protipříkladem pro libovolné dvě relace $R_{1}, R_{2}
 \rho (R_{1} \cup R_{2}) = \rho (R_{1}) \cup \rho (R_{2})\label{eq:4.1}
 \end{equation}
 
+Tvrzení \eqref{eq:4.1} je pravdivé.
+
+\textbf{Důkaz:}
 \begin{eqnarray*}
-\rho (R_{1} \cup R_{2}) =
-R_{1} \cup R_{2} \cup \Delta X =
-(R_{1} \cup \Delta X) \cup (R_{2} \cup \Delta X) =
+\rho (R_{1} \cup R_{2}) &=&
+R_{1} \cup R_{2} \cup \Delta X = \\ &=&
+(R_{1} \cup \Delta X) \cup (R_{2} \cup \Delta X) = \\ &=&
 \rho (R_{1}) \cup \rho (R_{2})
 \end{eqnarray*}
 
@@ -270,18 +288,21 @@ R_{1} \cup R_{2} \cup \Delta X =
 \sigma (R_{1} \cap R_{2}) = \sigma (R_{1}) \cap \sigma (R_{2})\label{eq:4.2}
 \end{equation}
 
+Tvrzení \eqref{eq:4.2} není pravdivé.
+
+\textbf{Důkaz:}
 \begin{eqnarray*}
-R_{1} = \lbrace (1, 2) \rbrace \\
-R_{2} = \lbrace (2, 1) \rbrace \\
-R_{1} \cap R_{2} = \emptyset \\
+R_{1} &=& \lbrace (1, 2) \rbrace \\
+R_{2} &=& \lbrace (2, 1) \rbrace \\
+R_{1} \cap R_{2} &=& \emptyset \\
 \sigma(R_{1}) =
-\lbrace (1, 2) \cup (2, 1) \rbrace =
+\lbrace (1, 2) \cup (2, 1) \rbrace &=&
 \lbrace (1, 2), (2, 1) \rbrace \\
-\sigma(R_{2}) =
-\lbrace (2, 1) \cup (1, 2) \rbrace =
+\sigma(R_{2}) &=&
+\lbrace (2, 1) \cup (1, 2) \rbrace = \\ &=&
 \lbrace (1, 2), (2, 1) \rbrace \\
-\emptyset \neq \lbrace (1, 2), (2, 1) \rbrace \Rightarrow
-\sigma (R_{1} \cap R_{2}) \neq \sigma (R_{1}) \cap \sigma (R_{2})
+\emptyset &\neq& \lbrace (1, 2), (2, 1) \rbrace \\
+\sigma (R_{1} \cap R_{2}) &\neq& \sigma (R_{1}) \cap \sigma (R_{2})
 \end{eqnarray*}
 
 \noindent\rule{\textwidth}{1pt}
@@ -290,27 +311,33 @@ R_{1} \cap R_{2} = \emptyset \\
 \tau (R_{1} \cap R_{2}) = \tau (R_{1}) \cap \tau (R_{2})\label{eq:4.3}
 \end{equation}
 
+Tvrzení \eqref{eq:4.3} není pravdivé.
+
+\textbf{Důkaz:}
 \begin{eqnarray*}
-R_{1} = \lbrace (1, 2), (2, 3), (3, 1) \rbrace \\
-R_{2} = \lbrace (1, 2), (2, 5), (5, 1) \rbrace \\
-\tau(R_{1}) = \lbrace (1, 2), (2, 3), (3, 1), (1, 3), (2, 1), (3, 2) \rbrace \\
-\tau(R_{1}) = \lbrace (1, 2), (2, 5), (5, 1), (1, 5), (2, 1), (5, 2) \rbrace \\
-\tau (R_{1} \cap R_{2}) = \lbrace (1, 2), (2, 1) \rbrace \\
-R_{1} \cap R_{2} = \lbrace (1,2) \rbrace \\
-\tau(R_{1} \cap R_{2}) = \lbrace (1,2) \rbrace \\
-\tau (R_{1} \cap R_{2}) \neq \tau (R_{1}) \cap \tau (R_{2})
+R_{1} &=& \lbrace (1, 2), (2, 3), (3, 1) \rbrace \\
+R_{2} &=& \lbrace (1, 2), (2, 5), (5, 1) \rbrace \\
+\tau(R_{1}) &=& \lbrace (1, 2), (2, 3), (3, 1), (1, 3), (2, 1), (3, 2) \rbrace \\
+\tau(R_{2}) &=& \lbrace (1, 2), (2, 5), (5, 1), (1, 5), (2, 1), (5, 2) \rbrace \\
+\tau (R_{1} \cap R_{2}) &=& \lbrace (1, 2), (2, 1) \rbrace \\
+R_{1} \cap R_{2} &=& \lbrace (1,2) \rbrace \\
+\tau(R_{1} \cap R_{2}) &=& \lbrace (1,2) \rbrace \\
+\tau (R_{1} \cap R_{2}) &\neq& \tau (R_{1}) \cap \tau (R_{2})
 \end{eqnarray*}
 
-\noindent\rule{\textwidth}{1pt}
+\newpage
 
 \begin{equation}
 \tau (R_{1} \cup R_{2}) = \tau (R_{1}) \cup \tau (R_{2})\label{eq:4.4}
 \end{equation}
 
+Tvrzení \eqref{eq:4.4} je pravdivé.
+
+\textbf{Důkaz:}
 \begin{eqnarray*}
-\tau (R_{1} \cup R_{2}) =
-(R_{1} \cup R_{2}) \circ (R_{1} \cup R_{2}) =
-(R_{1} \circ R_{1}) \cup (R_{2} \circ R_{2}) =
+\tau (R_{1} \cup R_{2}) &=&
+(R_{1} \cup R_{2}) \circ (R_{1} \cup R_{2}) = \\ &=&
+(R_{1} \circ R_{1}) \cup (R_{2} \circ R_{2}) = \\ &=&
 \tau(R_{1}) \cup \tau(R_{2})
 \end{eqnarray*}
 
@@ -320,29 +347,35 @@ R_{1} \cap R_{2} = \lbrace (1,2) \rbrace \\
 \sigma(\rho(R_{1})) = \rho(\sigma(R_{1}))\label{eq:4.5}
 \end{equation}
 
+Tvrzení \eqref{eq:4.5} je pravdivé.
+
+\textbf{Důkaz:}
 \begin{eqnarray*}
-\sigma(\tau(R_{1})) =
-\sigma(R_{1} \cup \Delta X) =
-(R_{1} \cup \Delta X) \cup (R_{1} \cup \Delta X)^{-1} =
-(R_{1} \cup \Delta X) \cup (R_{1}^{-1} \cup \Delta X^{-1}) = \\ =
-(R_{1} \cup R_{1}^{-1}) \cup (\Delta X \cup \Delta X^{-1}) =
-\sigma(R_{1}) \cup (\Delta X \cup \Delta X^{-1}) =
+\sigma(\tau(R_{1})) &=&
+\sigma(R_{1} \cup \Delta X) = \\ &=&
+(R_{1} \cup \Delta X) \cup (R_{1} \cup \Delta X)^{-1} = \\ &=&
+(R_{1} \cup \Delta X) \cup (R_{1}^{-1} \cup \Delta X^{-1}) = \\ &=&
+(R_{1} \cup R_{1}^{-1}) \cup (\Delta X \cup \Delta X^{-1}) = \\ &=&
+\sigma(R_{1}) \cup (\Delta X \cup \Delta X^{-1}) = \\ &=&
 \rho(\sigma(R_{1}))
 \end{eqnarray*}
 
-%\noindent\rule{\textwidth}{1pt}
+\noindent\rule{\textwidth}{1pt}
 
 \begin{equation}
 \sigma(\tau(R_{1})) = \tau(\sigma(R_{1}))\label{eq:4.6}
 \end{equation}
 
+Tvrzení \eqref{eq:4.6} není pravdivé.
+
+\textbf{Důkaz:}
 \begin{eqnarray*}
-R_{1} = \lbrace (1, 2), (2, 3) \rbrace \\
-\tau(R_{1}) = \lbrace (1, 2), (2, 3), (1, 3) \rbrace \\
-\sigma(\tau(R_{1})) = \lbrace (1, 2), (2, 3), (1, 3), (2, 1), (3, 2), (3, 1) \rbrace \\
-\sigma(R_{1}) = \lbrace (1, 1), (2, 2), (3, 3), (2, 1), (2, 3), (1, 2), (3, 2), (1, 3), (3, 1) \rbrace \\
-\tau(\sigma(R_{1})) = \lbrace (1, 1), (2, 2), (3, 3), (2, 1), (2, 3), (1, 2), (3, 2), (1, 3), (3, 1) \rbrace \\
-\sigma(\tau(R_{1})) \neq \tau(\sigma(R_{1}))
+R_{1} &=& \lbrace (1, 2), (2, 3) \rbrace \\
+\tau(R_{1}) &=& \lbrace (1, 2), (2, 3), (1, 3) \rbrace \\
+\sigma(\tau(R_{1})) &=& \lbrace (1, 2), (2, 3), (1, 3), (2, 1), (3, 2), (3, 1) \rbrace \\
+\sigma(R_{1}) &=& \lbrace (1, 1), (2, 2), (3, 3), (2, 1), (2, 3), (1, 2), (3, 2), (1, 3), (3, 1) \rbrace \\
+\tau(\sigma(R_{1})) &=& \lbrace (1, 1), (2, 2), (3, 3), (2, 1), (2, 3), (1, 2), (3, 2), (1, 3), (3, 1) \rbrace \\
+\sigma(\tau(R_{1})) &\neq& \tau(\sigma(R_{1}))
 \end{eqnarray*}
 
 \noindent\rule{\textwidth}{1pt}
@@ -351,13 +384,16 @@ R_{1} = \lbrace (1, 2), (2, 3) \rbrace \\
 \rho(\tau(R_{1})) = \tau(\rho(R_{1}))\label{eq:4.7}
 \end{equation}
 
+Tvrzení \eqref{eq:4.7} je pravdivé.
+
+\textbf{Důkaz:}
 \begin{eqnarray*}
-R_{1} = \lbrace (1, 2), (2, 3) \rbrace \\
-\tau(R_{1}) = \lbrace (1, 2), (2, 3), (1, 3) \rbrace \\
-\rho(\tau(R_{1})) = \lbrace (1, 1), (2, 2), (3, 3), (1, 2), (2, 3), (1, 3) \rbrace \\
-\rho(R_{1}) = \lbrace (1, 1), (1, 2), (2, 3), (2, 2), (3, 3) \rbrace \\
-\tau(\rho(R_{1})) = \lbrace (1, 1), (2, 2), (3, 3), (2, 3), (1, 2), (1, 3) \rbrace \\
-\rho(\tau(R_{1})) = \tau(\rho(R_{1}))
+R_{1} &=& \lbrace (1, 2), (2, 3) \rbrace \\
+\tau(R_{1}) &=& \lbrace (1, 2), (2, 3), (1, 3) \rbrace \\
+\rho(\tau(R_{1})) &=& \lbrace (1, 1), (2, 2), (3, 3), (1, 2), (2, 3), (1, 3) \rbrace \\
+\rho(R_{1}) &=& \lbrace (1, 1), (1, 2), (2, 3), (2, 2), (3, 3) \rbrace \\
+\tau(\rho(R_{1})) &=& \lbrace (1, 1), (2, 2), (3, 3), (2, 3), (1, 2), (1, 3) \rbrace \\
+\rho(\tau(R_{1})) &=& \tau(\rho(R_{1}))
 \end{eqnarray*}
 
 \newpage
@@ -368,39 +404,49 @@ Položme $X = \lbrace 0, 1, 2, 3, 4, 5 \rbrace$ a $Y
 = \lbrace 0 , 1, 2 \rbrace$. Dále klademe $x_{1} \oplus x_{2} = (x_{1} + x_{2}) \mod 6$, $x_{1} \odot x_{2} = (x_{1} \cdot x_{2}) \mod 6$, $y_{1} \boxplus y_{2} = (y_{1} + y_{2}) \mod 3$, $y_{1} \boxdot y_{2} = (y_{1} \cdot y_{2}) \mod 3$ pro všechna $x_{1}, x_{2} \in X$ a $y_{1}, y_{2} \in Y$. Dokažte, že $f: X \rightarrow Y$, kde $f(x) = x \mod 3$ je morfismus algeber $(X, \oplus, \odot)$ a $(Y, \boxplus, \boxdot)$. Nalezněte Ker $f$ a sestrojte faktorovou algebru $X$/Ker $f$. Faktorizujte zobrazení $f$ přes faktorovou algebru.
 
 \begin{eqnarray*}
-f(x_{1} \oplus x_{2}) = f(x_{1}) \boxplus f(x_{2}) \\
-f(x_{1} \odot x_{2}) = f(x_{1}) \boxdot f(x_{2}) \\
-x_{1} + x_{2} = 6k + r; k, r \in \mathbb{Z}; 0 \leq r < 6 \\
-x_{1} \oplus x_{2} = r = 3v + s; v,s \in \mathbb{Z}; 0 \leq s \leq 3 \\
-x_{1} = 3m + t; m, t \in \mathbb{Z}; 0 \leq t < 3 \\
-x_{2} = 3p + u; p, u \in \mathbb{Z}; 0 \leq u < 3 \\
-f(x_{1}) = t; f(x_{2}) = u \\
-t + u = 3q + v, \text{kde}~ q,v \in \mathbb{Z}; 0 \leq u < 3 \\
-f(x_{1}) \boxplus f(x_{2}) = (t + u) \mod 3 = v \\
-x_{1} + x_{2} = 6k + r = 6k + 3v + s = 3 \cdot (2k + v) + s \Rightarrow (x_{1} + x_{2}) \mod 3 = s \\
-x_{1} + x_{2} =  3m + 3p + 3q +v = 3 \cdot (m + p + q) + v \Rightarrow (x_{1} + x_{2}) \mod 3 = v \\
-f(x_{1} \oplus x_{2}) = s = f(x_{1}) \boxplus f(x_{2}) \\
+X &=& \lbrace 0, 1, 2, 3, 4, 5 \rbrace \\
+Y &=& \lbrace 0 , 1, 2 \rbrace \\
+x_{1} \oplus x_{2} &:=& (x_{1} + x_{2}) \mod 6 \\
+x_{1} \odot x_{2} &:=& (x_{1} \cdot x_{2}) \mod 6 \\
+y_{1} \boxplus y_{2} &:=& (y_{1} + y_{2}) \mod 3 \\
+y_{1} \boxdot y_{2} &:=& (y_{1} \cdot y_{2}) \mod 3
 \end{eqnarray*}
 
 \begin{eqnarray*}
-f(x_{1} \odot x_{2}) = f(x_{1}) \boxdot f(x_{2}) \\
-x_{1} \cdot x_{2} = 6k + r; k, r \in \mathbb{Z}; 0 \leq r < 6 \\
-x_{1} \odot x_{2} = r = 3m + s; m, s \in \mathbb{Z}; 0 \leq s < 3 \\
-x_{1} = 3n + t; n, t \in \mathbb{Z}, 0 \leq t < 3 \\
-x_{2} = 3p + u; p, u \in \mathbb{Z}, 0 \leq u < 3 \\
-f(x_{1}) = t; f(x_{2}) = u \\
-t \cdot u = 3q + v; q, v \in \mathbb{Z}, 0 \leq v < 3 \\
-f(x_{1}) \boxdot f(x_{2}) = (t \cdot u) \mod 3 = v \\
-x_{1} \cdot x_{2} = 6k+r = 6k+3n+s = 3(3k+n)+s \Rightarrow (x_{1} \cdot x_{2}) \mod 3 = s \\
-x_{1} \cdot x_{2} = 3m + 3p + 3q + v = 3 (m + p + q) + v \Rightarrow (x_{1} \cdot x_{2}) \mod 3 = v \\
-f(x_{1} \odot f(x_{2})) = s = f(x_{1}) \boxdot f(x_{2})
+f(x_{1} \oplus x_{2}) &=& f(x_{1}) \boxplus f(x_{2}) \\
+x_{1} + x_{2} &=& 6k + r; k, r \in \mathbb{Z}; 0 \leq r < 6 \\
+x_{1} \oplus x_{2} &=& r = 3v + s; v,s \in \mathbb{Z}; 0 \leq s \leq 3 \\
+x_{1} &=& 3m + t; m, t \in \mathbb{Z}; 0 \leq t < 3 \\
+x_{2} &=& 3p + u; p, u \in \mathbb{Z}; 0 \leq u < 3 \\
+f(x_{1}) &=& t; f(x_{2}) = u \\
+t + u &=& 3q + v, \text{kde}~ q,v \in \mathbb{Z}; 0 \leq u < 3 \\
+f(x_{1}) \boxplus f(x_{2}) &=& (t + u) \mod 3 = v \\
+x_{1} + x_{2} &=& 6k + r = 6k + 3v + s = 3 \cdot (2k + v) + s \Rightarrow (x_{1} + x_{2}) \mod 3 = s \\
+x_{1} + x_{2} &=&  3m + 3p + 3q +v = 3 \cdot (m + p + q) + v \Rightarrow (x_{1} + x_{2}) \mod 3 = v \\
+f(x_{1} \oplus x_{2}) &=& s = f(x_{1}) \boxplus f(x_{2}) \\
 \end{eqnarray*}
 
 \begin{eqnarray*}
-\ker f = f^{-1} \circ f = \lbrace (x;y) \mid x,y \in X, f(x) = f(y) \rbrace \\
-\varrho = X / \ker f = \lbrace \lbrace 0, 3 \rbrace, \lbrace 1, 4 \rbrace, \lbrace 2, 5 \rbrace \rbrace \\
-\left[x\right] \bigoplus \left[y\right] := \left[x \oplus y\right] \\
-\left[x\right] \bigodot \left[y\right] := \left[x \odot y\right] \\
+f(x_{1} \odot x_{2}) &=& f(x_{1}) \boxdot f(x_{2}) \\
+x_{1} \cdot x_{2} &=& 6k + r; k, r \in \mathbb{Z}; 0 \leq r < 6 \\
+x_{1} \odot x_{2} &=& r = 3m + s; m, s \in \mathbb{Z}; 0 \leq s < 3 \\
+x_{1} &=& 3n + t; n, t \in \mathbb{Z}, 0 \leq t < 3 \\
+x_{2} &=& 3p + u; p, u \in \mathbb{Z}, 0 \leq u < 3 \\
+f(x_{1}) &=& t; f(x_{2}) = u \\
+t \cdot u &=& 3q + v; q, v \in \mathbb{Z}, 0 \leq v < 3 \\
+f(x_{1}) \boxdot f(x_{2}) &=& (t \cdot u) \mod 3 = v \\
+x_{1} \cdot x_{2} &=& 6k+r = 6k+3n+s = 3(3k+n)+s \Rightarrow (x_{1} \cdot x_{2}) \mod 3 = s \\
+x_{1} \cdot x_{2} &=& 3m + 3p + 3q + v = 3 (m + p + q) + v \Rightarrow (x_{1} \cdot x_{2}) \mod 3 = v \\
+f(x_{1} \odot f(x_{2})) &=& s = f(x_{1}) \boxdot f(x_{2})
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\ker f &=& f^{-1} \circ f = \\
+&=& \lbrace (x;y) \mid x,y \in X, f(x) = f(y) \rbrace \\
+\varrho &=& X / \ker f = \\
+&=&  \lbrace \lbrace 0, 3 \rbrace, \lbrace 1, 4 \rbrace, \lbrace 2, 5 \rbrace \rbrace \\
+\left[x\right] \bigoplus \left[y\right] &:=& \left[x \oplus y\right] \\
+\left[x\right] \bigodot \left[y\right] &:=& \left[x \odot y\right] \\
 \end{eqnarray*}
 
 \begin{center}
@@ -427,6 +473,55 @@ $\lbrace 2, 5 \rbrace$ & $\lbrace 2, 5 \rbrace$ & $\lbrace 0, 3 \rbrace$ & $\lbr
 \hline 
 \end{tabular}
 \end{center}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=1em, column sep=4em]
+    {
+    0 & \lbrace 0, 3 \rbrace & 0 \\
+    1 & \lbrace 1, 4 \rbrace & 1 \\
+    2 & \lbrace 2, 5 \rbrace & 2 \\
+    3 \\
+    4 \\
+    5 \\
+    };
+    {
+    [start chain]
+    \chainin (m-1-1);
+    \chainin (m-1-2) [join={node[above,labeled] {g}}];
+    \chainin (m-1-3) [join={node[above,labeled] {f}}];
+    }
+    {
+    [start chain]
+    \chainin (m-2-1);
+    \chainin (m-2-2);
+    \chainin (m-2-3);
+    }
+    {
+    [start chain]
+    \chainin (m-3-1);
+    \chainin (m-3-2);
+    \chainin (m-3-3);
+    }
+    {
+    [start chain]
+    \chainin (m-4-1);
+    \chainin (m-1-2);
+    }
+    {
+    [start chain]
+    \chainin (m-5-1);
+    \chainin (m-2-2);
+    }
+    {
+    [start chain]
+    \chainin (m-6-1);
+    \chainin (m-3-2);
+    }
+\end{tikzpicture}
+\caption{$(X/\ker f, \bigoplus, \bigodot)$}
+\end{figure}
 
 \newpage
 
