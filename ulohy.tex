@@ -268,6 +268,8 @@ Množina $(\tau_{2}, \subseteq)$ je svazově uspořádaná, protože má v $\tau
 
 \subsection*{Příklad č.~4}
 
+\setcounter{equation}{0}
+
 Dokažte nebo vyvraťe protipříkladem pro libovolné dvě relace $R_{1}, R_{2}$ na množině $X$:
 
 \begin{equation}
@@ -333,14 +335,20 @@ R_{1} \cap R_{2} &=& \lbrace (1,2) \rbrace \\
 \tau (R_{1} \cup R_{2}) = \tau (R_{1}) \cup \tau (R_{2})\label{eq:4.4}
 \end{equation}
 
-Tvrzení \eqref{eq:4.4} je pravdivé.
+Tvrzení \eqref{eq:4.4} není pravdivé.
 
 \textbf{Důkaz:}
 \begin{eqnarray*}
-\tau (R_{1} \cup R_{2}) &=&
-(R_{1} \cup R_{2}) \circ (R_{1} \cup R_{2}) = \\ &=&
-(R_{1} \circ R_{1}) \cup (R_{2} \circ R_{2}) = \\ &=&
-\tau(R_{1}) \cup \tau(R_{2})
+R_{1} &=& \lbrace (1, 2), (2, 1) \rbrace \\
+R_{2} &=& \lbrace (2, 3), (3, 2) \rbrace \\
+\tau(R_{1} &=& \lbrace (1, 1), (1, 2), (2, 1), (2, 2) \rbrace \\
+\tau(R_{2}) &=& \lbrace (2, 2), (2, 3), (3, 2), (3, 3) \rbrace
+\end{eqnarray*}
+\begin{eqnarray*}
+R_{1} \cup R_{2} &=& \lbrace (1, 2), (2, 1), (2, 3), (3, 2) \rbrace \\
+\tau (R_{1} \cup R_{2}) &=& \lbrace (1, 1), (1, 2), (2, 1), (2, 2), (2, 3), (3, 2), (3, 3), (1, 3), (3, 1) \rbrace \\
+\tau (R_{1}) \cup \tau (R_{2}) &=& \lbrace (1, 1), (1,2), (2, 1), (2, 2), (2, 3), (3, 2), (3, 3) \rbrace \\
+\tau (R_{1} \cup R_{2}) &\neq& \tau (R_{1}) \cup \tau (R_{2})
 \end{eqnarray*}
 
 \noindent\rule{\textwidth}{1pt}
