@@ -360,10 +360,75 @@ R_{1} = \lbrace (1, 2), (2, 3), (3, 1) \rbrace \\
 \tau(\rho(R_{1}))
 \end{eqnarray*}
 
+\newpage
+
 \subsection*{Příklad č.~5}
 
 Položme $X = \lbrace 0, 1, 2, 3, 4, 5 \rbrace$ a $Y
 = \lbrace 0 , 1, 2 \rbrace$. Dále klademe $x_{1} \oplus x_{2} = (x_{1} + x_{2}) \mod 6$, $x_{1} \odot x_{2} = (x_{1} \cdot x_{2}) \mod 6$, $y_{1} \boxplus y_{2} = (y_{1} + y_{2}) \mod 3$, $y_{1} \boxdot y_{2} = (y_{1} \cdot y_{2}) \mod 3$ pro všechna $x_{1}, x_{2} \in X$ a $y_{1}, y_{2} \in Y$. Dokažte, že $f: X \rightarrow Y$, kde $f(x) = x \mod 3$ je morfismus algeber $(X, \oplus, \odot)$ a $(Y, \boxplus, \boxdot)$. Nalezněte Ker $f$ a sestrojte faktorovou algebru $X$/Ker $f$. Faktorizujte zobrazení $f$ přes faktorovou algebru.
+
+\begin{eqnarray*}
+f(x_{1} \oplus x_{2}) = f(x_{1}) \boxplus f(x_{2}) \\
+f(x_{1} \odot x_{2}) = f(x_{1}) \boxdot f(x_{2}) \\
+x_{1} + x_{2} = 6k + r; k, r \in \mathbb{Z}; 0 \leq r < 6 \\
+x_{1} \oplus x_{2} = r = 3v + s; v,s \in \mathbb{Z}; 0 \leq s \leq 3 \\
+x_{1} = 3m + t; m, t \in \mathbb{Z}; 0 \leq t < 3 \\
+x_{2} = 3p + u; p, u \in \mathbb{Z}; 0 \leq u < 3 \\
+f(x_{1}) = t; f(x_{2}) = u \\
+t + u = 3q + v, \text{kde}~ q,v \in \mathbb{Z}; 0 \leq u < 3 \\
+f(x_{1}) \boxplus f(x_{2}) = (t + u) \mod 3 = v \\
+x_{1} + x_{2} = 6k + r = 6k + 3v + s = 3 \cdot (2k + v) + s \Rightarrow (x_{1} + x_{2}) \mod 3 = s \\
+x_{1} + x_{2} =  3m + 3p + 3q +v = 3 \cdot (m + p + q) + v \Rightarrow (x_{1} + x_{2}) \mod 3 = v \\
+f(x_{1} \oplus x_{2}) = s = f(x_{1}) \boxplus f(x_{2}) \\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+f(x_{1} \odot x_{2}) = f(x_{1}) \boxdot f(x_{2}) \\
+x_{1} \cdot x_{2} = 6k + r; k, r \in \mathbb{Z}; 0 \leq r < 6 \\
+x_{1} \odot x_{2} = r = 3m + s; m, s \in \mathbb{Z}; 0 \leq s < 3 \\
+x_{1} = 3n + t; n, t \in \mathbb{Z}, 0 \leq t < 3 \\
+x_{2} = 3p + u; p, u \in \mathbb{Z}, 0 \leq u < 3 \\
+f(x_{1}) = t; f(x_{2}) = u \\
+t \cdot u = 3q + v; q, v \in \mathbb{Z}, 0 \leq v < 3 \\
+f(x_{1}) \boxdot f(x_{2}) = (t \cdot u) \mod 3 = v \\
+x_{1} \cdot x_{2} = 6k+r = 6k+3n+s = 3(3k+n)+s \Rightarrow (x_{1} \cdot x_{2}) \mod 3 = s \\
+x_{1} \cdot x_{2} = 3m + 3p + 3q + v = 3 (m + p + q) + v \Rightarrow (x_{1} \cdot x_{2}) \mod 3 = v \\
+f(x_{1} \odot f(x_{2})) = s = f(x_{1}) \boxdot f(x_{2})
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\ker f = f^{-1} \circ f = \lbrace (x;y) \mid x,y \in X, f(x) = f(y) \rbrace \\
+\varrho = X / \ker f = \lbrace \lbrace 0, 3 \rbrace, \lbrace 1, 4 \rbrace, \lbrace 2, 5 \rbrace \rbrace \\
+\left[x\right] \bigoplus \left[y\right] := \left[x \oplus y\right] \\
+\left[x\right] \bigodot \left[y\right] := \left[x \odot y\right] \\
+\end{eqnarray*}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+$\bigodot$             & $\lbrace 0, 3 \rbrace$ & $\lbrace 1,4 \rbrace$ & $\lbrace 2,5 \rbrace$ \\ 
+\hline 
+$\lbrace 0, 3 \rbrace$ & $\lbrace 0, 3 \rbrace$ & $\lbrace 0, 3 \rbrace$ & $\lbrace 0, 3 \rbrace$ \\ 
+\hline 
+$\lbrace 1, 4 \rbrace$ & $\lbrace 0, 3 \rbrace$ & $\lbrace 1, 4 \rbrace$ & $\lbrace 2, 5 \rbrace$ \\ 
+\hline 
+$\lbrace 2, 5 \rbrace$ & $\lbrace 0, 3 \rbrace$ & $\lbrace 2, 5 \rbrace$ & $\lbrace 1, 4 \rbrace$ \\ 
+\hline 
+\end{tabular}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+$\bigoplus$            & $\lbrace 0, 3 \rbrace$ & $\lbrace 1,4 \rbrace$ & $\lbrace 2,5 \rbrace$ \\ 
+\hline 
+$\lbrace 0, 3 \rbrace$ & $\lbrace 0, 3 \rbrace$ & $\lbrace 1, 4 \rbrace$ & $\lbrace 2, 5 \rbrace$ \\ 
+\hline 
+$\lbrace 1, 4 \rbrace$ & $\lbrace 1, 4 \rbrace$ & $\lbrace 2, 5 \rbrace$ & $\lbrace 0, 3 \rbrace$ \\ 
+\hline 
+$\lbrace 2, 5 \rbrace$ & $\lbrace 2, 5 \rbrace$ & $\lbrace 0, 3 \rbrace$ & $\lbrace 1, 4 \rbrace$ \\ 
+\hline 
+\end{tabular}
+\end{center}
+
+\newpage
 
 \section*{Domácí úloha 2}
 
