@@ -83,22 +83,22 @@ Tvrzení \eqref{eq:1.1} je pravdivé.
 
 \textbf{Důkaz:}
 \begin{eqnarray*}
-x \in \overline{X \cap Y} \Rightarrow
-x \in U \setminus (X \cap Y) \Rightarrow
-x \in U \wedge x \not\in (X \cap Y) \Rightarrow \\ \Rightarrow
-x \in U \wedge (x \not\in X \vee x \not\in Y) \Rightarrow
-(x \in U \wedge x \not\in X) \vee (x \in U \wedge x \not\in Y) \Rightarrow \\ \Rightarrow
-(x \in U \setminus X) \vee (x \in U \setminus Y) \Rightarrow
-x \in \overline{X} \vee x \in \overline{Y} \Rightarrow
+x \in \overline{X \cap Y} &\Rightarrow&
+x \in U \setminus (X \cap Y) \Rightarrow \\ &\Rightarrow&
+x \in U \wedge x \not\in (X \cap Y) \Rightarrow \\ &\Rightarrow&
+x \in U \wedge (x \not\in X \vee x \not\in Y) \Rightarrow \\ &\Rightarrow&
+(x \in U \wedge x \not\in X) \vee (x \in U \wedge x \not\in Y) \Rightarrow \\ &\Rightarrow&
+(x \in U \setminus X) \vee (x \in U \setminus Y) \Rightarrow \\ &\Rightarrow&
+x \in \overline{X} \vee x \in \overline{Y} \Rightarrow \\ &\Rightarrow&
 x \in \overline{X} \cup \overline{Y}
 \end{eqnarray*}
 \begin{eqnarray*}
-x \in \overline{X} \cup \overline{Y} \Rightarrow
-(x \in U \setminus X) \vee (x \in U \setminus Y) \Rightarrow
-(x \in U \wedge x \not\in X) \vee (x \in U \wedge x \not\in Y) \Rightarrow \\ \Rightarrow
-x \in U \wedge (x \not\in X \vee x \not\in Y) \Rightarrow
-x \in U \wedge x \not\in (X \cap Y) \Rightarrow
-x \in U \setminus (X \cap Y) \Rightarrow
+x \in \overline{X} \cup \overline{Y} &\Rightarrow&
+(x \in U \setminus X) \vee (x \in U \setminus Y) \Rightarrow \\ &\Rightarrow&
+(x \in U \wedge x \not\in X) \vee (x \in U \wedge x \not\in Y) \Rightarrow \\ &\Rightarrow&
+x \in U \wedge (x \not\in X \vee x \not\in Y) \Rightarrow \\ &\Rightarrow&
+x \in U \wedge x \not\in (X \cap Y) \Rightarrow \\ &\Rightarrow&
+x \in U \setminus (X \cap Y) \Rightarrow \\ &\Rightarrow&
 x \in \overline{X \cap Y}
 \end{eqnarray*}
 
@@ -112,17 +112,18 @@ Tvrzení \eqref{eq:1.2} není pravdivé.
 
 \textbf{Důkaz:}
 \begin{eqnarray*}
-X \setminus Y \Rightarrow x \in X \wedge x \not\in Y \\
-Y \setminus X \Rightarrow x \in Y \wedge x \not\in X
+X \setminus Y &\Rightarrow& x \in X \wedge x \not\in Y \\
+Y \setminus X &\Rightarrow& x \in Y \wedge x \not\in X
 \end{eqnarray*}
 \begin{eqnarray*}
-X = \lbrace 1, 2, 3, 4 \rbrace \\
-Y = \lbrace 3, 4, 5, 6 \rbrace \\
-Y \setminus X \neq X \setminus Y \\
-\lbrace 5, 6\rbrace \neq \lbrace 1, 2 \rbrace
+X &=& \lbrace 1, 2, 3, 4 \rbrace \\
+Y &=& \lbrace 3, 4, 5, 6 \rbrace \\
+Y \setminus X &\neq& X \setminus Y \\
+\lbrace 5, 6\rbrace &\neq& \lbrace 1, 2 \rbrace
 \end{eqnarray*}
 
-\noindent\rule{\textwidth}{1pt}
+%\noindent\rule{\textwidth}{1pt}
+\newpage
 
 \begin{equation}
 \overline{X \cup Y} \supseteq X \label{eq:1.3}
@@ -132,13 +133,13 @@ Tvrzení \eqref{eq:1.3} není pravdivé, protože $\overline{X \cup Y}$ je množ
 
 \textbf{Důkaz:}
 \begin{eqnarray*}
-X = \lbrace 1, 2 \rbrace \\
-Y = \lbrace 2, 3 \rbrace
+X &=& \lbrace 1, 2 \rbrace \\
+Y &=& \lbrace 2, 3 \rbrace
 \end{eqnarray*}
 \begin{eqnarray*}
-X \cup Y = \lbrace 1, 2, 3 \rbrace \\
-\overline{X \cup Y} = U \setminus \lbrace 1, 2, 3 \rbrace \\
-U \setminus \lbrace 1, 2, 3 \rbrace \not\supseteq \lbrace 1,2 \rbrace
+X \cup Y &=& \lbrace 1, 2, 3 \rbrace \\
+\overline{X \cup Y} &=& U \setminus \lbrace 1, 2, 3 \rbrace \\
+U \setminus \lbrace 1, 2, 3 \rbrace &\not\supseteq& \lbrace 1,2 \rbrace
 \end{eqnarray*}
 
 \noindent\rule{\textwidth}{1pt}
@@ -151,14 +152,15 @@ Tvrzení \eqref{eq:1.4} není pravdivé.
 
 \textbf{Důkaz:}
 \begin{eqnarray*}
-X = \lbrace 1, 2 \rbrace \\
-Y = \lbrace 2, 3 \rbrace
+X &=& \lbrace 1, 2 \rbrace \\
+Y &=& \lbrace 2, 3 \rbrace
 \end{eqnarray*}
 \begin{eqnarray*}
-(X \cup Y) \cap (Y \setminus X) =
-(\lbrace 1, 2 \rbrace \cup \lbrace 2, 3 \rbrace) \cap (\lbrace 2, 3 \rbrace \setminus \lbrace 1, 2 \rbrace) =
-\lbrace 1, 2, 3 \rbrace \cap \lbrace 3 \rbrace = \lbrace 3 \rbrace \\
-(X \cup Y) \cap (Y \setminus X) \neq Y
+(X \cup Y) \cap (Y \setminus X) &=&
+(\lbrace 1, 2 \rbrace \cup \lbrace 2, 3 \rbrace) \cap (\lbrace 2, 3 \rbrace \setminus \lbrace 1, 2 \rbrace) = \\ &=&
+\lbrace 1, 2, 3 \rbrace \cap \lbrace 3 \rbrace = \\ &=&
+\lbrace 3 \rbrace \\
+(X \cup Y) \cap (Y \setminus X) &\neq& Y
 \end{eqnarray*}
 
 \noindent\rule{\textwidth}{1pt}
@@ -171,21 +173,21 @@ Tvrzení \eqref{eq:1.5} není pravdivé.
 
 \textbf{Důkaz:}
 \begin{eqnarray*}
-X = \lbrace a, b, c, d \rbrace \\
-Y = \lbrace a, b, 1, 2 \rbrace \\
-Z = \lbrace a, c, 1, 3 \rbrace
+X &=& \lbrace a, b, c, d \rbrace \\
+Y &=& \lbrace a, b, 1, 2 \rbrace \\
+Z &=& \lbrace a, c, 1, 3 \rbrace
 \end{eqnarray*}
 \begin{eqnarray*}
-X \setminus (Y \cap Z) = (Z \setminus Y) \cup Z \\
-\lbrace a, b, c, d \rbrace \setminus (\lbrace a, b, 1, 2 \rbrace \cap \lbrace a, c, 1, 3 \rbrace) =
-\lbrace a, b, c, d \rbrace \setminus \lbrace a, 1 \rbrace =
+X \setminus (Y \cap Z) &=&
+(Z \setminus Y) \cup Z \lbrace a, b, c, d \rbrace \setminus (\lbrace a, b, 1, 2 \rbrace \cap \lbrace a, c, 1, 3 \rbrace)  = \\ &=&
+\lbrace a, b, c, d \rbrace \setminus \lbrace a, 1 \rbrace = \\ &=&
 \lbrace b, c, d \rbrace \\
-(Z \setminus Y) \cup Z =
-(\lbrace a, c, 1, 3 \rbrace \setminus \lbrace a, b, 1, 2 \rbrace) \cup \lbrace a, c, 1, 3 \rbrace =
-\lbrace c, d \rbrace \cup \lbrace a, c, 1, 3 \rbrace =
+(Z \setminus Y) \cup Z &=&
+(\lbrace a, c, 1, 3 \rbrace \setminus \lbrace a, b, 1, 2 \rbrace) \cup \lbrace a, c, 1, 3 \rbrace \\ &=&
+\lbrace c, d \rbrace \cup \lbrace a, c, 1, 3 \rbrace = \\ &=&
 \lbrace a, c, d, 1, 3 \rbrace \\
-\lbrace b, c, d \rbrace \neq \lbrace a, c, d, 1, 3 \rbrace \Rightarrow
-X \setminus (Y \cap Z) \neq (Z \setminus Y) \cup Z
+\lbrace b, c, d \rbrace &\neq& \lbrace a, c, d, 1, 3 \rbrace \\
+X \setminus (Y \cap Z) &\neq& (Z \setminus Y) \cup Z
 \end{eqnarray*}
 
 \newpage
