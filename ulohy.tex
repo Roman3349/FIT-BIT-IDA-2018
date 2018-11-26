@@ -12,22 +12,16 @@
 \usepackage[table]{xcolor}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{tikz}
+\usepackage{pdfpages}
 \author{Radim Lipka (xlipka02), Roman Ondráček (xondra58), Pavel Raur (xraurp00), David Reinhart (xreinh00)}
 \title{Domácí úlohy do Diskrétní matematiky}
 \newcommand{\enlCell}[1][~]{\cellcolor{yellow}\textbf{{#1}}}
 \usetikzlibrary{arrows,chains,matrix,positioning,scopes}
-%
 \makeatletter
-\tikzset{join/.code=\tikzset{after node path={%
-\ifx\tikzchainprevious\pgfutil@empty\else(\tikzchainprevious)%
-edge[every join]#1(\tikzchaincurrent)\fi}}}
+\tikzset{join/.code=\tikzset{after node path={\ifx\tikzchainprevious\pgfutil@empty\else(\tikzchainprevious) edge[every join]#1(\tikzchaincurrent)\fi}}}
 \makeatother
-%
-\tikzset{>=stealth',every on chain/.append style={join},
-         every join/.style={->}}
-\tikzstyle{labeled}=[execute at begin node=$\scriptstyle,
-   execute at end node=$]
-%
+\tikzset{>=stealth',every on chain/.append style={join}, every join/.style={->}}
+\tikzstyle{labeled}=[execute at begin node=$\scriptstyle, execute at end node=$]
 \begin{document}
 % Vynechání číslování
 \pagestyle{empty}
@@ -68,8 +62,11 @@ David Reinhart (xreinh00)
 % Povolení číslování
 \pagestyle{plain}
 
+\includepdf{pages/IDA_Hl.pdf}
 \include{uloha1}
+\includepdf{pages/IDA_Hl.pdf}
 \include{uloha2}
+\includepdf{pages/IDA_Hl.pdf}
 \include{uloha3}
 
 \end{document}
