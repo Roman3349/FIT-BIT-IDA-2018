@@ -13,6 +13,7 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{tikz}
 \usepackage{pdfpages}
+\usepackage{tabularx}
 \author{Radim Lipka (xlipka02), Roman Ondráček (xondra58), Pavel Raur (xraurp00), David Reinhart (xreinh00)}
 \title{Domácí úlohy do Diskrétní matematiky}
 \newcommand{\enlCell}[1][~]{\cellcolor{yellow}\textbf{{#1}}}
@@ -22,6 +23,7 @@
 \makeatother
 \tikzset{>=stealth',every on chain/.append style={join}, every join/.style={->}}
 \tikzstyle{labeled}=[execute at begin node=$\scriptstyle, execute at end node=$]
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{document}
 % Vynechání číslování
 \pagestyle{empty}
@@ -48,12 +50,26 @@ Diskrétní matematika \\
 
 \vspace{128pt}
 
-\begin{large}
-Radim Lipka (xlipka02) \\
-Roman Ondráček (xondra58) \\
-Pavel Raur (xraurp00) \\
-David Reinhart (xreinh00)
-\end{large}
+\begin{table}[ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|l|C|C|C|C|C|C|C|}
+\hline 
+\scriptsize{1. člen skupiny:} & \scriptsize{ID:} & \scriptsize{Úloha:} & 1 & 2 & 3 & 4 & 5 & $\Sigma$ \\
+Radim Lipka                   & 213479           & & & & & & & \\ 
+\hline 
+\scriptsize{2. člen skupiny:} & \scriptsize{ID:} & & & & & & & \\ 
+Roman Ondráček                & 213535           & & & & & & & \\ 
+\hline 
+\scriptsize{3. člen skupiny:} & \scriptsize{ID:} & & & & & & & \\ 
+Pavel Raur                    & 213490           & & & & & & & \\ 
+\hline 
+\scriptsize{4. člen skupiny:} & \scriptsize{ID:} & & & & & & & \\ 
+David Reinhart                & 213160           & & & & & & & \\ 
+\hline
+\end{tabularx} 
+\end{center}
+\end{table}
+
 
 \end{center}
 
@@ -62,11 +78,8 @@ David Reinhart (xreinh00)
 % Povolení číslování
 \pagestyle{plain}
 
-\includepdf{pages/IDA_Hl.pdf}
 \include{uloha1}
-\includepdf{pages/IDA_Hl.pdf}
 \include{uloha2}
-\includepdf{pages/IDA_Hl.pdf}
 \include{uloha3}
 
 \end{document}
