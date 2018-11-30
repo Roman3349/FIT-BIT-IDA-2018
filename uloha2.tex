@@ -5,29 +5,29 @@
 Najděte všechny podgrupy $(\mathbb{Z}_{6}, \oplus)$. Které z nich jsou normální? Sestrojte příslušné faktorové grupy.
 
 \begin{eqnarray*}
-\mathbb{Z}_{6} &=& \lbrace 0, 1, 2, 3, 4, 5 \rbrace \\ 
+\mathbb{Z}_{6} &=& \lbrace 0, 1, 2, 3, 4, 5 \rbrace \\
 a \oplus b &=& (a + b) \mod 6
 \end{eqnarray*}
 
 \minipage{0.50\textwidth}
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-$\oplus$ & 0 & 1 & 2 & 3 & 4 & 5\\ 
-\hline 
+\hline
+$\oplus$ & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
 0        & 0 & 1 & 2 & 3 & 4 & 5 \\
-\hline 
-1        & 1 & 2 & 3 & 4 & 5 & 0 \\ 
-\hline 
-2        & 2 & 3 & 4 & 5 & 0 & 1 \\ 
-\hline 
-3        & 3 & 4 & 5 & 0 & 1 & 2 \\ 
-\hline 
-4        & 4 & 5 & 0 & 1 & 2 & 3 \\ 
-\hline 
-5        & 5 & 0 & 1 & 2 & 3 & 4 \\ 
-\hline 
-\end{tabular} 
+\hline
+1        & 1 & 2 & 3 & 4 & 5 & 0 \\
+\hline
+2        & 2 & 3 & 4 & 5 & 0 & 1 \\
+\hline
+3        & 3 & 4 & 5 & 0 & 1 & 2 \\
+\hline
+4        & 4 & 5 & 0 & 1 & 2 & 3 \\
+\hline
+5        & 5 & 0 & 1 & 2 & 3 & 4 \\
+\hline
+\end{tabular}
 \end{center}
 \endminipage
 \minipage{0.50\textwidth}
@@ -59,7 +59,7 @@ $
 2 \oplus 1 &=& 3 \\
 3 \oplus 1 &=& 4 \\
 4 \oplus 1 &=& 5 \\
-5 \oplus 1 &=& 0 
+5 \oplus 1 &=& 0
 \end{eqnarray*}
 \endminipage
 \minipage{0.16\textwidth}
@@ -89,7 +89,7 @@ $
 2 \oplus 5 &=& 1 \\
 3 \oplus 5 &=& 2 \\
 4 \oplus 5 &=& 3 \\
-5 \oplus 5 &=& 4 
+5 \oplus 5 &=& 4
 \end{eqnarray*}
 \endminipage
 
@@ -129,14 +129,99 @@ x \oplus z
 x \odot y
 \end{eqnarray*}
 
+\newpage
+
 \subsection*{Příklad č.~9}
 
 Buď $G$ úplný graf o $n$ vrcholech. Určete počet cest délky 2, které začínají v pevně zvoleném vrcholu $a$ a končí v jiném pevně zvoleném vrcholu $b$. Kolik existuje takových cest délky 3? Zobecněte tento výsledek pro libovolné $k$, kde $1 \leq\ k < n$.
+
+\minipage{0.8\textwidth}
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1,level distance = 1.5cm}]
+\node (a) {A}
+  child{
+    node (a1) {1}
+    child{
+      node (a12) {2}
+      child{ node (a123) {3}}
+    }
+    child{
+      node (a13) {3}
+	  child{ node (a132) {2}}
+    }
+  }
+  child{
+    node (a2) {2}
+    child{
+      node (a21) {1}
+	  child{ node (a213) {3}}
+    }
+    child{
+      node (a23) {3}
+	  child{ node (a231) {1}}
+    }
+  }
+  child{
+    node (a3) {3}
+    child{
+      node (a31) {1}
+	  child{ node (a312) {2}}
+    }
+    child{
+      node (a32) {2}
+	  child{ node (a321) {1}}
+    }
+  }
+;
+\node (b) at (0, -7) {B};
+\draw (a123) -- (b);
+\draw (a132) -- (b);
+\draw (a213) -- (b);
+\draw (a231) -- (b);
+\draw (a312) -- (b);
+\draw (a321) -- (b);
+\end{tikzpicture}
+\endminipage
+\minipage{0.2\textwidth}
+\begin{eqnarray*}
+\frac{(n - 2)!}{(n - k - 1)!}
+\end{eqnarray*}
+\endminipage
 
 \subsection*{Příklad č.~10}
 
 Nakreslete graf se šesti vrcholy, který lze nakreslit jedním uzavřeným tahem, ale v němž neexistuje hamiltonovská kružnice. Náležitě zdůvodněte, že tento graf má požadované vlastnosti. \\
 
+\minipage{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[main_node/.style={circle,fill=blue!60,minimum size=1em,inner sep=3pt]}]
+    \node[main_node] (1) at (-2, -2) {};
+    \node[main_node] (2) at (-2, 2) {};
+    \node[main_node] (3) at (0, 0) {};
+    \node[main_node] (4) at (2, 2) {};
+    \node[main_node] (5) at (2, -2) {};
+    \draw (1) -- (2) -- (3) -- (4) -- (5) -- (3) -- (1);
+\end{tikzpicture} \\
+V grafu není hamiltonovská kružnice. \\
+Cesta je uzavřená a prochází všemi vrcholy. \\
+Nemá 6 vrcholů.
+\end{center}
+\endminipage
+\minipage{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[main_node/.style={circle,fill=blue!60,minimum size=1em,inner sep=3pt]}]
+    \node[main_node] (1) at (-2, -2) {};
+    \node[main_node] (2) at (-2, 2) {};
+    \node[main_node] (3) at (-1, 0) {};
+    \node[main_node] (4) at (1, 0) {};
+    \node[main_node] (5) at (2, 2) {};
+    \node[main_node] (6) at (2, -2) {};
+    \draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- (4) -- (3) -- (1);
+\end{tikzpicture} \\
+V grafu není hamiltonovská kružnice. \\
+Nelze zakreslit jedním uzavřeným tahem. \\
+Má 6 vrcholů.
+\end{center}
+\endminipage
 \begin{center}
 \begin{tikzpicture}[main_node/.style={circle,fill=blue!60,minimum size=1em,inner sep=3pt]}]
     \node[main_node] (1) at (-2, -2) {};
@@ -147,4 +232,7 @@ Nakreslete graf se šesti vrcholy, který lze nakreslit jedním uzavřeným tahe
     \node[main_node] (6) at (2, -2) {};
     \draw (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- (3) -- (1);
 \end{tikzpicture} \\
+V grafu není hamiltonovská kružnice. \\
+Cesta je uzavřená a prochází všemi vrcholy. \\
+Má 6 vrcholů.
 \end{center}
