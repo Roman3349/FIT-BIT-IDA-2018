@@ -17,7 +17,19 @@
 \author{Radim Lipka (xlipka02), Roman Ondráček (xondra58), Pavel Raur (xraurp00), David Reinhart (xreinh00)}
 \title{Domácí úlohy do Diskrétní matematiky}
 \newcommand{\enlCell}[1][~]{\cellcolor{yellow}\textbf{{#1}}}
-\usetikzlibrary{arrows,chains,matrix,positioning,scopes}
+\newcommand{\printNgon}[1]{
+\begin{tikzpicture}[mystyle/.style={draw,shape=circle,fill=blue}]
+\def\ngon{#1}
+\node[regular polygon,regular polygon sides=\ngon,minimum size=3cm] (p) {};
+\foreach\x in {1,...,\ngon}{\node[mystyle] (p\x) at (p.corner \x){};}
+\foreach\x in {1,...,\numexpr\ngon-1\relax}{
+  \foreach\y in {\x,...,\ngon}{
+    \draw (p\x) -- (p\y);
+  }
+}
+\end{tikzpicture}
+}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes,shapes.geometric}
 \makeatletter
 \tikzset{join/.code=\tikzset{after node path={\ifx\tikzchainprevious\pgfutil@empty\else(\tikzchainprevious) edge[every join]#1(\tikzchaincurrent)\fi}}}
 \makeatother
