@@ -104,7 +104,32 @@ T_{6} &=& T_{2}
 
 \subsection*{Příklad č.~7}
 
-Najděte všechny distributivní svazy o 5 prvcích.
+Najděte všechny distributivní svazy o 5 prvcích.\\
+\\*
+Svaz (X, $\sup$, $\inf$), X = \{A, B, C, D, E\}\\*
+Svaz je modulární a distributivní.
+
+\minipage{0.50\textwidth}
+\begin{tikzpicture}
+  \node (a) at (0,1) {A};
+  \node (b) at (-2,0) {B};
+  \node (c) at (-2,-1) {C};
+  \node (d) at (-2,-2) {D};
+  \node (e) at (0,-3) {E};
+  \draw (e) -- (a) -- (b) -- (c) -- (d) -- (e);
+\end{tikzpicture}
+\endminipage
+
+\minipage{0.50\textwidth}
+\begin{tikzpicture}
+  \node (a) at (0,1) {A};
+  \node (b) at (0,0) {B};
+  \node (c) at (0,-1) {C};
+  \node (d) at (0,-2) {D};
+  \node (e) at (0,-3) {E};
+  \draw (a) -- (b) -- (c) -- (d) -- (e);
+\end{tikzpicture}
+\endminipage
 
 \subsection*{Příklad č.~8}
 
