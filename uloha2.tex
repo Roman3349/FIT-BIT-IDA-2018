@@ -367,14 +367,38 @@ Buď $G$ úplný graf o $n$ vrcholech. Určete počet cest délky 2, které zač
 \end{eqnarray*}
 \endminipage
 
+Graf rozložíme na strom cest, které vedou z počátečního bodu (A) do koncového (B).
+Pak počest cest vedoucí z každého dalšího uzlu je o 1 menší, než počet cest vedoucí z předchozího uzlu. Takže můžeme zapsat že celkový počet cest vedoucí z uzlů je roven faktoriálu z celkového počtu uzlů bez dvou, počátečního a koncového.\\
+
+Pokud cheme zjistit počet cest s určitou délkou, odebereme tu část faktoriálu kterou nepotřebujeme.\\
+
+Tento vzorec můžeme zapsat jako:
+\begin{eqnarray*}
+\frac{(n - 2)!}{((n - 2) - (k - 1))!}
+\end{eqnarray*}
+kde $n$ je celkový počet uzlů a $k$ je počet hran v cestě.\\
+
+Po zjednodušení dostaneme vzorec:
+\begin{eqnarray*}
+\frac{(n - 2)!}{(n - k - 1)!}
+\end{eqnarray*}
 \minipage{0.33\textwidth}
-\printNgon{3}
+\printNgon{3}\\*
+Počet vrcholů n = 3\\*
+Počet cest délky k=2 je 1
 \endminipage
 \minipage{0.33\textwidth}
-\printNgon{4}
+\printNgon{4}\\*
+Počet vrcholů n = 4\\*
+Počet cest délky k=2 je 2\\*
+Počet cest délky k=3 je 2
 \endminipage
 \minipage{0.33\textwidth}
-\printNgon{5}
+\printNgon{5}\\*
+Počet vrcholů n = 5\\*
+Počet cest délky k=2 je 3\\*
+Počet cest délky k=3 je 6\\*
+Počet cest délky k=4 je 6
 \endminipage
 
 \newpage
